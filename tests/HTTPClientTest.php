@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use RPurinton\GeminiPHP\HTTPClient;
+use Userdc\GeminiPHP\HTTPClient;
 
 class HTTPClientTest extends TestCase
 {

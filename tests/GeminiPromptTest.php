@@ -2,7 +2,7 @@
 
 use GuzzleHttp\BodySummarizerInterface;
 use PHPUnit\Framework\TestCase;
-use RPurinton\GeminiPHP\GeminiPrompt;
+use Userdc\GeminiPHP\GeminiPrompt;
 
 final class GeminiPromptTest extends TestCase
 {

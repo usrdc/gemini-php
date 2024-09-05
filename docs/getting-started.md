@@ -7,7 +7,7 @@ After installing Gemini PHP, you can start using it to interact with the Gemini 
 Create a new instance of `GeminiClient` with your configuration details:
 
 ```php
-use RPurinton\GeminiPHP\GeminiClient;
+use Userdc\GeminiPHP\GeminiClient;
 
 $client = new GeminiClient([
     'projectId' => 'your-project-id',
@@ -22,7 +22,7 @@ $client = new GeminiClient([
 Use `GeminiPrompt` to create a new prompt:
 
 ```php
-use RPurinton\GeminiPHP\GeminiPrompt;
+use Userdc\GeminiPHP\GeminiPrompt;
 
 $prompt = new GeminiPrompt([
     'generation_config' => [

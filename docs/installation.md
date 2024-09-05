@@ -14,7 +14,7 @@ Before installing Gemini PHP, ensure you have the following:
 To install Gemini PHP, run the following command in your project directory:
 
 ```bash
-composer require rpurinton/gemini-php
+composer require Userdc/gemini-php
 ```
 
 This will download the library and its dependencies into your project's `vendor` directory.

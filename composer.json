@@ -1,6 +1,6 @@
 {
     "name": "userdc/gemini-php",
-    "description": "A PHP client for the Gemini API. (based on rpurinton/gemini-php)",
+    "description": "A PHP client for the Gemini API. (based on Userdc/gemini-php)",
     "type": "library",
     "require": {
         "php": "^8.0",

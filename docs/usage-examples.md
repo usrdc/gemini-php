@@ -7,7 +7,7 @@ Gemini PHP can be used in a variety of ways to enhance your application with AI-
 Here's a simple example of how to send a prompt and receive a response:
 
 ```php
-use RPurinton\GeminiPHP\{GeminiClient, GeminiPrompt};
+use Userdc\GeminiPHP\{GeminiClient, GeminiPrompt};
 
 $client = new GeminiClient([...]);
 $prompt = new GeminiPrompt([...]);

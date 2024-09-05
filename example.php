@@ -2,10 +2,10 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use RPurinton\GeminiPHP\{GeminiClient, GeminiPrompt};
+use Userdc\GeminiPHP\{GeminiClient, GeminiPrompt};
 
 // See:
-// https://github.com/rpurinton/gemini-php
+// https://github.com/Userdc/gemini-php
 // https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/overview
 
 

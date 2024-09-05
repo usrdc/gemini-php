@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use RPurinton\GeminiPHP\Validate;
+use Userdc\GeminiPHP\Validate;
 
 class ValidateTest extends TestCase
 {

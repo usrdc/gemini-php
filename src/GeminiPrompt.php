@@ -1,6 +1,6 @@
 <?php
 
-namespace RPurinton\GeminiPHP;
+namespace Userdc\GeminiPHP;
 
 use TikToken\Encoder;
 
@@ -8,7 +8,7 @@ use TikToken\Encoder;
  * Class GeminiPrompt
  * Handles the generation and management of content for the Gemini system.
  *
- * @package RPurinton\GeminiPHP
+ * @package Userdc\GeminiPHP
  */
 class GeminiPrompt
 {

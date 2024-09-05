@@ -1,12 +1,12 @@
 <?php
 
-namespace RPurinton\GeminiPHP;
+namespace Userdc\GeminiPHP;
 
 use Google\Auth\ApplicationDefaultCredentials;
 
 /**
  * Class GeminiClient
- * @package RPurinton\GeminiPHP
+ * @package Userdc\GeminiPHP
  */
 class GeminiClient
 {

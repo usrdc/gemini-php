@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use RPurinton\GeminiPHP\GeminiResponse;
+use Userdc\GeminiPHP\GeminiResponse;
 
 class GeminiResponseTest extends TestCase
 {

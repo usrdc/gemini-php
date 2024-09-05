@@ -1,10 +1,10 @@
 <?php
 
-namespace RPurinton\GeminiPHP;
+namespace Userdc\GeminiPHP;
 
 /**
  * Class GeminiResponse
- * @package RPurinton\GeminiPHP
+ * @package Userdc\GeminiPHP
  */
 class GeminiResponse
 {

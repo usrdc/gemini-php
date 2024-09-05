@@ -12,13 +12,13 @@ Composer
 - Create a Service Account in your project with Basic permissions.
 - Add an API Key and download the credentials JSON.
 - Save your credentials somewhere like /home/you/.google/myproject.json
-  
+
 ## Installation
 
 To install Gemini PHP, you can use Composer. Run the following command:
 
 ```bash
-composer require rpurinton/gemini-php
+composer require Userdc/gemini-php
 ```
 
 ## Usage

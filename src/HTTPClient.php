@@ -1,10 +1,10 @@
 <?php
 
-namespace RPurinton\GeminiPHP;
+namespace Userdc\GeminiPHP;
 
 /**
  * Class HTTPClient
- * @package RPurinton\GeminiPHP
+ * @package Userdc\GeminiPHP
  */
 class HTTPClient
 {
