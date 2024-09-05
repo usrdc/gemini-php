@@ -1,6 +1,6 @@
 {
-    "name": "rpurinton/gemini-php",
-    "description": "A PHP client for the Gemini API.",
+    "name": "userdc/gemini-php",
+    "description": "A PHP client for the Gemini API. (based on rpurinton/gemini-php)",
     "type": "library",
     "require": {
         "php": "^8.0",
@@ -12,18 +12,17 @@
     },
     "autoload": {
         "psr-4": {
-            "RPurinton\\GeminiPHP\\": "src/"
+            "Userdc\\GeminiPHP\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Russell Purinton",
-            "email": "russell.purinton@gmail.com"
+            "name": "Userdoc",
+            "email": "contact@userdoc.fyi"
         }
     ],
     "license": "MIT",
     "support": {
-        "discord": "https://discord.gg/yCDS5TgupC"
     },
     "minimum-stability": "stable",
     "version": "0.1.8"
