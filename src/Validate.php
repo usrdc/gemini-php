@@ -30,6 +30,7 @@ class Validate
         'gemini-1.5-flash-001', // 1M token lower-latency multi-modal model (text + images + audio+ video + function calling)
         'gemini-1.0-pro-vision-001', // 1M token multi-modal model (text + images + video + function calling)
         'gemini-experimental', // 32k token model (text + function calling)
+        'gemini-2.5-flash-preview-04-17',
         'gemini-2.5-pro-preview-03-25',
         'gemini-2.5-pro-exp-03-25'
     ];
