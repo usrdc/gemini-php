@@ -12,60 +12,6 @@ namespace Userdc\GeminiPHP;
  */
 class Validate
 {
-    const VALID_REGIONS = [
-        'us-central1', // Iowa
-        'us-west4', // Las Vegas, Nevada
-        'northamerica-northeast1', // Montréal, Canada
-        'us-east4', // Northern Virginia
-        'us-west1', // Oregon
-        'asia-northeast3', // Seoul, Korea
-        'asia-southeast1', // Singapore
-        'asia-northeast1' // Tokyo, Japan
-    ];
-
-    const VALID_MODELS = [
-        'gemini-pro', // 32k token model (text + function calling)
-        'gemini-pro-vision', // 16k multi-modal model (text + images + video + function calling)
-        'gemini-1.5-pro-001', // 2M token multi-modal model (text + images + audio+ video + function calling)
-        'gemini-1.5-flash-001', // 1M token lower-latency multi-modal model (text + images + audio+ video + function calling)
-        'gemini-1.0-pro-vision-001', // 1M token multi-modal model (text + images + video + function calling)
-        'gemini-experimental', // 32k token model (text + function calling)
-        'gemini-2.5-flash-preview-04-17',
-        'gemini-2.5-pro-preview-03-25',
-        'gemini-2.5-pro-exp-03-25'
-    ];
-
-    const VALID_CATEGORIES = [
-        'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-        'HARM_CATEGORY_HATE_SPEECH',
-        'HARM_CATEGORY_HARASSMENT',
-        'HARM_CATEGORY_DANGEROUS_CONTENT',
-    ];
-
-    const VALID_THRESHOLDS = [
-        'BLOCK_NONE',
-        'BLOCK_LOW_AND_ABOVE',
-        'BLOCK_MEDIUM_AND_ABOVE',
-        'BLOCK_ONLY_HIGH',
-        'BLOCK_HIGH_AND_ABOVE',
-        'HARM_BLOCK_THRESHOLD_UNSPECIFIED'
-    ];
-
-    const VALID_PROPERTY_TYPES = [
-        'string',
-        'number',
-        'integer',
-        'boolean',
-        'array',
-        'object',
-        'null'
-    ];
-
-    const VALID_ROLES = [
-        'user',
-        'assistant'
-    ];
-
     /**
      * Validates the provided client configuration.
      *
@@ -95,19 +41,9 @@ class Validate
 
         if (!is_string($client_config['projectId'])) throw new \Exception('Error: projectId must be a string.');
         if (!is_string($client_config['regionName'])) throw new \Exception('Error: regionName must be a string.');
-        if (!isset($client_config['ignoreRegionValidation']) || $client_config['ignoreRegionValidation'] !== 'true') {
-            if (!in_array($client_config['regionName'], self::VALID_REGIONS)) {
-                throw new \Exception('Error: Invalid regionName in client config.');
-            }
-        }
         if (!is_string($client_config['credentialsPath'])) throw new \Exception('Error: credentialsPath must be a string.');
         if (!self::credentials($client_config['credentialsPath'])) throw new \Exception('Error: Invalid credentialsPath in client config.');
         if (!is_string($client_config['modelName'])) throw new \Exception('Error: modelName must be a string.');
-        if (!isset($client_config['ignoreModelValidation']) || $client_config['ignoreModelValidation'] !== 'true') {
-            if (!in_array($client_config['modelName'], self::VALID_MODELS)) {
-                throw new \Exception('Error: Invalid modelName in client config.');
-            }
-        }
         return true;
     }
 
@@ -156,12 +92,11 @@ class Validate
         foreach ($contents as $content) {
             if (!isset($content['role'])) throw new \Exception('Error: Content role not set.');
             if (!is_string($content['role'])) throw new \Exception('Error: Content role must be a string.');
-            if (!in_array($content['role'], self::VALID_ROLES)) throw new \Exception('Error: Content role must be either "user" or "assistant".');
             if (!isset($content['parts'])) throw new \Exception('Error: Content parts not set.');
             if (!is_array($content['parts'])) throw new \Exception('Error: Content parts must be an array.');
             if (!count($content['parts'])) throw new \Exception('Error: Content parts must not be empty.');
             if (!$last_role && $content['role'] !== 'user') throw new \Exception('Error: First content role must be "user".');
-            if ($content['role'] === $last_role) throw new \Exception('Error: Content roles must alternate between "user" and "assistant".');
+            if ($content['role'] === $last_role) throw new \Exception('Error: Content roles must alternate.');
             $last_role = $content['role'];
         }
         return true;
@@ -224,14 +159,6 @@ class Validate
             if (!isset($setting['category']) || !isset($setting['threshold'])) {
                 throw new \Exception('Error: Each safety setting must contain a category and a threshold.');
             }
-
-            if (!in_array($setting['category'], self::VALID_CATEGORIES)) {
-                throw new \Exception('Error: Invalid category in safety settings.');
-            }
-
-            if (!in_array($setting['threshold'], self::VALID_THRESHOLDS)) {
-                throw new \Exception('Error: Invalid threshold in safety settings.');
-            }
         }
 
         return true;
@@ -273,9 +200,6 @@ class Validate
             foreach ($functionDeclaration['parameters']['properties'] as $property) {
                 if (!is_array($property) || !isset($property['type']) || !isset($property['description']) || !is_string($property['type']) || !is_string($property['description'])) {
                     throw new \Exception('Error: Each property in "properties" must be an array with "type" and "description" keys, both of which must be strings.');
-                }
-                if (!in_array($property['type'], self::VALID_PROPERTY_TYPES)) {
-                    throw new \Exception('Error: Invalid property type {$property["type"]} in {$functionDeclaration["name"]} function declaration.');
                 }
             }
 
