@@ -107,21 +107,15 @@ class Validate
      *
      * @param mixed $generation_config The generation configuration to validate.
      * @return bool Returns true if validation passes, throws an exception otherwise.
-     * @throws \Exception If the generation config is not set, not an array, or if the keys do not match the expected keys.
+     * @throws \Exception If the generation config is not set, not an array.
      */
     public static function generationConfig(mixed $generation_config): bool
     {
         if (!isset($generation_config)) throw new \Exception('Error: Generation config not set.');
         if (!is_array($generation_config)) throw new \Exception('Error: Generation config must be an array.');
 
-        $expected_keys = ['temperature', 'topP', 'topK', 'maxOutputTokens'];
         $actual_keys = array_keys($generation_config);
-        sort($expected_keys);
         sort($actual_keys);
-
-        if ($expected_keys !== $actual_keys) {
-            throw new \Exception('Error: Generation config keys do not match expected keys.');
-        }
 
         if ($generation_config['temperature'] > 1.0 || $generation_config['temperature'] < 0) {
             throw new \Exception('Error: Temperature must be between 0 and 1.');
