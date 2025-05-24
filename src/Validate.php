@@ -114,25 +114,6 @@ class Validate
         if (!isset($generation_config)) throw new \Exception('Error: Generation config not set.');
         if (!is_array($generation_config)) throw new \Exception('Error: Generation config must be an array.');
 
-        $actual_keys = array_keys($generation_config);
-        sort($actual_keys);
-
-        if ($generation_config['temperature'] > 1.0 || $generation_config['temperature'] < 0) {
-            throw new \Exception('Error: Temperature must be between 0 and 1.');
-        }
-
-        if ($generation_config['topP'] > 1.0 || $generation_config['topP'] < 0) {
-            throw new \Exception('Error: topP must be between 0 and 1.');
-        }
-
-        if ($generation_config['topK'] > 40 || $generation_config['topK'] < 0) {
-            throw new \Exception('Error: topK must be between 0 and 40.');
-        }
-
-        if ($generation_config['maxOutputTokens'] > 8192 || $generation_config['maxOutputTokens'] < 0) {
-            throw new \Exception('Error: maxOutputTokens must be between 0 and 8192.');
-        }
-
         return true;
     }
 
